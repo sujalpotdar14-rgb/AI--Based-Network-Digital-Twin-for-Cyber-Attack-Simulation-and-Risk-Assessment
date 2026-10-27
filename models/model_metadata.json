@@ -1,0 +1,161 @@
+{
+  "accuracy": 1.0,
+  "macro_f1": 1.0,
+  "feature_names": [
+    "flow_duration",
+    "total_fwd_packets",
+    "total_bwd_packets",
+    "packet_length_mean",
+    "syn_flag_ratio",
+    "error_rate",
+    "failed_logins",
+    "cvss_score",
+    "asset_criticality",
+    "node_centrality",
+    "port_entropy"
+  ],
+  "classes": [
+    "DDoS SYN Flood",
+    "Man-in-the-Middle (MitM)",
+    "Normal",
+    "Port Scanning",
+    "Ransomware Propagation",
+    "SQLi / RCE",
+    "SSH Brute Force"
+  ],
+  "confusion_matrix": [
+    [
+      135,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      96,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      547,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      118,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      103,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      80,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      121
+    ]
+  ],
+  "feature_importances": {
+    "flow_duration": 0.02417545329978521,
+    "total_fwd_packets": 0.1106031455296713,
+    "total_bwd_packets": 0.11701491851432157,
+    "packet_length_mean": 0.18703006468710384,
+    "syn_flag_ratio": 0.10699810754672708,
+    "error_rate": 0.10323023643965867,
+    "failed_logins": 0.09763114254371759,
+    "cvss_score": 0.05863860798098197,
+    "asset_criticality": 0.05659881850104185,
+    "node_centrality": 0.036481905377960665,
+    "port_entropy": 0.10159759957903018
+  },
+  "classification_report": {
+    "DDoS SYN Flood": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 135.0
+    },
+    "Man-in-the-Middle (MitM)": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 96.0
+    },
+    "Normal": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 547.0
+    },
+    "Port Scanning": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 118.0
+    },
+    "Ransomware Propagation": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 103.0
+    },
+    "SQLi / RCE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 80.0
+    },
+    "SSH Brute Force": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 121.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1200.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 1200.0
+    }
+  }
+}

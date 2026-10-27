@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Network Digital Twin | Cyber Attack Simulation & Risk Assessment</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header glass-card">
+            <div class="header-brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Network Digital Twin</h1>
+                    <span class="brand-subtitle">AI-POWERED CYBER ATTACK SIMULATOR & RISK ENGINE</span>
+                </div>
+            </div>
+
+            <div class="header-metrics">
+                <div class="metric-pill">
+                    <span class="pill-label">DIGITAL TWIN RISK SCORE</span>
+                    <div class="pill-value-group">
+                        <span id="risk-score-header" class="pill-value text-green">14.2</span>
+                        <span class="pill-max">/100</span>
+                    </div>
+                </div>
+
+                <div class="metric-pill">
+                    <span class="pill-label">THREAT LEVEL</span>
+                    <span id="threat-level-badge" class="status-badge badge-green">
+                        <i class="fa-solid fa-shield-halved"></i> LOW
+                    </span>
+                </div>
+
+                <div class="metric-pill">
+                    <span class="pill-label">BLAST RADIUS</span>
+                    <span id="blast-radius-header" class="pill-value">0.0%</span>
+                </div>
+
+                <a href="/api/reports/export" class="btn btn-outline" download>
+                    <i class="fa-solid fa-file-export"></i> Export Report
+                </a>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs glass-card">
+            <button class="nav-btn active" data-tab="tab-topology">
+                <i class="fa-solid fa-diagram-project"></i> Digital Twin Topology
+            </button>
+            <button class="nav-btn" data-tab="tab-simulator">
+                <i class="fa-solid fa-crosshairs"></i> Attack Simulator
+            </button>
+            <button class="nav-btn" data-tab="tab-analytics">
+                <i class="fa-solid fa-chart-line"></i> Risk Analytics & ML
+            </button>
+            <button class="nav-btn" data-tab="tab-playbooks">
+                <i class="fa-solid fa-shield-virus"></i> Defense Playbooks
+            </button>
+            <button class="nav-btn" data-tab="tab-asset-manager">
+                <i class="fa-solid fa-server"></i> Asset Topology Manager
+            </button>
+            <button class="nav-btn" data-tab="tab-copilot">
+                <i class="fa-solid fa-robot"></i> AI Security Copilot
+            </button>
+        </nav>
+
+        <!-- Main Workspace -->
+        <main class="main-content">
+            
+            <!-- TAB 1: TOPOLOGY VISUALIZER -->
+            <section id="tab-topology" class="tab-content active">
+                <div class="topology-layout">
+                    <!-- Canvas Container -->
+                    <div class="canvas-card glass-card">
+                        <div class="canvas-header">
+                            <div class="canvas-title">
+                                <h3><i class="fa-solid fa-circle-nodes"></i> Enterprise Network Graph</h3>
+                                <span class="canvas-subtitle">Real-time dynamic telemetry & attack path visualizer</span>
+                            </div>
+                            <div class="canvas-controls">
+                                <button id="btn-reset-net" class="btn btn-sm btn-danger">
+                                    <i class="fa-solid fa-rotate-left"></i> Reset Network State
+                                </button>
+                                <button id="btn-recenter" class="btn btn-sm btn-secondary">
+                                    <i class="fa-solid fa-compress"></i> Recenter
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- HTML5 Canvas -->
+                        <div class="canvas-wrapper">
+                            <canvas id="topologyCanvas"></canvas>
+
+                            <!-- Legend Overlay -->
+                            <div class="canvas-legend glass-panel">
+                                <h4>Status Legend</h4>
+                                <div class="legend-items">
+                                    <div class="legend-item"><span class="legend-dot status-healthy"></span> Healthy</div>
+                                    <div class="legend-item"><span class="legend-dot status-attack"></span> Under Attack</div>
+                                    <div class="legend-item"><span class="legend-dot status-compromised"></span> Compromised</div>
+                                    <div class="legend-item"><span class="legend-dot status-isolated"></span> Micro-Isolated</div>
+                                    <div class="legend-item"><span class="legend-dot status-shielded"></span> Firewall Shielded</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Node Inspector Panel -->
+                    <div class="inspector-card glass-card">
+                        <div class="inspector-header">
+                            <h3><i class="fa-solid fa-circle-info"></i> Node Inspector</h3>
+                        </div>
+                        <div id="inspector-content" class="inspector-body">
+                            <div class="empty-state">
+                                <i class="fa-solid fa-mouse-pointer"></i>
+                                <p>Click any node on the graph to inspect detailed telemetry, open ports, CVSS vulnerabilities, and graph centrality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: ATTACK SIMULATOR -->
+            <section id="tab-simulator" class="tab-content">
+                <div class="simulator-layout">
+                    <!-- Simulation Setup Panel -->
+                    <div class="sim-controls-card glass-card">
+                        <h3><i class="fa-solid fa-biohazard"></i> Launch Attack Scenario</h3>
+                        <p class="section-desc">Select a cyber threat vector to simulate multi-stage attack propagation across the Digital Twin graph.</p>
+
+                        <form id="sim-form">
+                            <div class="form-group">
+                                <label for="attack-type-select"><i class="fa-solid fa-bug"></i> Attack Type / Threat Vector</label>
+                                <select id="attack-type-select" class="form-control">
+                                    <option value="DDoS SYN Flood">DDoS SYN Flood (Volumetric Traffic)</option>
+                                    <option value="Ransomware Propagation" selected>Ransomware Lateral Movement (Kerberoasting / SMB)</option>
+                                    <option value="SSH Brute Force">SSH Brute Force Credential Attack</option>
+                                    <option value="SQL Injection / RCE">SQL Injection & Remote Code Execution (RCE)</option>
+                                    <option value="Port Scanning">Reconnaissance Port Scan Sweep</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="target-node-select"><i class="fa-solid fa-bullseye"></i> Target Network Node</label>
+                                <select id="target-node-select" class="form-control">
+                                    <!-- Populated dynamically -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sim-intensity"><i class="fa-solid fa-gauge-high"></i> Attack Intensity</label>
+                                <select id="sim-intensity" class="form-control">
+                                    <option value="low">Low (Stealthy APT)</option>
+                                    <option value="medium">Medium (Moderate Threat)</option>
+                                    <option value="high" selected>High (Aggressive Outbreak)</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" id="btn-run-sim" class="btn btn-primary btn-block">
+                                <i class="fa-solid fa-play"></i> Launch Attack Simulation
+                            </button>
+                        </form>
+
+                        <!-- MITRE ATT&CK Stage Tracker -->
+                        <div class="kill-chain-card">
+                            <h4>MITRE ATT&CK® Kill Chain Tracker</h4>
+                            <div class="kill-chain-steps">
+                                <div class="kc-step" id="kc-step-1">
+                                    <span class="kc-num">1</span>
+                                    <span class="kc-name">Recon</span>
+                                </div>
+                                <div class="kc-step" id="kc-step-2">
+                                    <span class="kc-num">2</span>
+                                    <span class="kc-name">Initial Access</span>
+                                </div>
+                                <div class="kc-step" id="kc-step-3">
+                                    <span class="kc-num">3</span>
+                                    <span class="kc-name">PrivEsc</span>
+                                </div>
+                                <div class="kc-step" id="kc-step-4">
+                                    <span class="kc-num">4</span>
+                                    <span class="kc-name">Lateral Movement</span>
+                                </div>
+                                <div class="kc-step" id="kc-step-5">
+                                    <span class="kc-num">5</span>
+                                    <span class="kc-name">Impact</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Attack Terminal -->
+                    <div class="sim-terminal-card glass-card">
+                        <div class="terminal-header">
+                            <div class="terminal-title">
+                                <i class="fa-solid fa-terminal"></i> Live Cyber Attack Execution Log
+                            </div>
+                            <span class="terminal-status"><i class="fa-solid fa-circle text-green pulse"></i> MONITORING</span>
+                        </div>
+                        <div id="terminal-log" class="terminal-body">
+                            <div class="log-line sys-line">[SYS_INIT] Digital Twin Telemetry Engine initialized. Waiting for simulation trigger...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: RISK ANALYTICS & ML -->
+            <section id="tab-analytics" class="tab-content">
+                <div class="analytics-grid">
+                    <!-- Gauge Card -->
+                    <div class="analytics-card glass-card">
+                        <h3><i class="fa-solid fa-gauge-simple-high"></i> Dynamic Network Risk Score</h3>
+                        <div class="gauge-display">
+                            <span id="risk-score-large" class="gauge-number text-green">14.2</span>
+                            <span class="gauge-unit">/ 100</span>
+                        </div>
+                        <p id="risk-description" class="risk-desc text-muted">Network state is currently baseline healthy with low vulnerability exposure.</p>
+                    </div>
+
+                    <!-- Risk History Line Chart -->
+                    <div class="analytics-card glass-card">
+                        <h3><i class="fa-solid fa-chart-line"></i> Risk Score Timeline Trend</h3>
+                        <div class="chart-container">
+                            <canvas id="riskHistoryChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Threat Distribution Pie Chart -->
+                    <div class="analytics-card glass-card">
+                        <h3><i class="fa-solid fa-chart-pie"></i> ML Threat Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="threatDistributionChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- ML Feature Importance Bar Chart -->
+                    <div class="analytics-card glass-card">
+                        <h3><i class="fa-solid fa-sliders"></i> Random Forest Feature Importances</h3>
+                        <div class="chart-container">
+                            <canvas id="featureImportanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Telemetry Threat & Anomaly Classifier -->
+                <div class="glass-card" style="margin-top: 20px; padding: 20px;">
+                    <h3><i class="fa-solid fa-brain"></i> Interactive AI Telemetry Threat & Anomaly Predictor</h3>
+                    <p class="section-desc">Inject custom network telemetry parameters to test real-time classification by the trained Random Forest Threat Model & Isolation Forest Anomaly Detector.</p>
+                    
+                    <form id="ai-predict-form" style="margin-top: 15px;">
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="pred-cvss"><i class="fa-solid fa-shield-virus"></i> CVSS Score (0-10)</label>
+                                <input type="number" step="0.1" min="0" max="10" id="pred-cvss" class="form-control" value="7.8" required>
+                            </div>
+                            <div class="form-group col">
+                                <label for="pred-failed-logins"><i class="fa-solid fa-user-lock"></i> Failed Logins</label>
+                                <input type="number" min="0" id="pred-failed-logins" class="form-control" value="12" required>
+                            </div>
+                            <div class="form-group col">
+                                <label for="pred-syn-ratio"><i class="fa-solid fa-network-wired"></i> SYN Flag Ratio (0-1)</label>
+                                <input type="number" step="0.01" min="0" max="1" id="pred-syn-ratio" class="form-control" value="0.75" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="pred-error-rate"><i class="fa-solid fa-triangle-exclamation"></i> Error Rate (0-1)</label>
+                                <input type="number" step="0.01" min="0" max="1" id="pred-error-rate" class="form-control" value="0.25" required>
+                            </div>
+                            <div class="form-group col">
+                                <label for="pred-pkt-len"><i class="fa-solid fa-box"></i> Mean Packet Length (bytes)</label>
+                                <input type="number" id="pred-pkt-len" class="form-control" value="1420" required>
+                            </div>
+                            <div class="form-group col">
+                                <label for="pred-crit"><i class="fa-solid fa-star"></i> Asset Criticality (1-5)</label>
+                                <input type="number" step="0.1" min="1" max="5" id="pred-crit" class="form-control" value="4.0" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-microchip"></i> Run AI Model Inference
+                        </button>
+                    </form>
+
+                    <div id="ai-predict-result" style="display: none; margin-top: 20px; padding: 16px; background: rgba(11, 15, 25, 0.8); border-radius: var(--radius-sm); border: 1px solid var(--card-border);">
+                        <!-- Results populated dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: DEFENSE PLAYBOOKS -->
+            <section id="tab-playbooks" class="tab-content">
+                <div class="playbooks-header glass-card">
+                    <div>
+                        <h3><i class="fa-solid fa-shield-halved"></i> Automated AI Defense Playbooks & Countermeasures</h3>
+                        <p class="section-desc">Evaluate "What-If" countermeasure simulations and execute dynamic mitigations to neutralize attack propagation.</p>
+                    </div>
+                    <button id="btn-refresh-playbooks" class="btn btn-outline">
+                        <i class="fa-solid fa-rotate"></i> Refresh Recommendations
+                    </button>
+                </div>
+
+                <div id="playbooks-container" class="playbooks-grid">
+                    <!-- Populated dynamically -->
+                </div>
+            </section>
+
+            <!-- TAB 5: ASSET MANAGER -->
+            <section id="tab-asset-manager" class="tab-content">
+                <div class="asset-layout">
+                    <!-- Form Card -->
+                    <div class="asset-form-card glass-card">
+                        <h3><i class="fa-solid fa-plus-circle"></i> Add Custom Network Asset</h3>
+                        <form id="add-asset-form">
+                            <div class="form-group">
+                                <label for="asset-name">Asset Display Name</label>
+                                <input type="text" id="asset-name" class="form-control" placeholder="e.g. Payments Gateway Microservice" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="asset-type">Asset Category</label>
+                                    <select id="asset-type" class="form-control">
+                                        <option value="server">Server</option>
+                                        <option value="database">Database</option>
+                                        <option value="firewall">Firewall</option>
+                                        <option value="router">Router</option>
+                                        <option value="workstation">Workstation</option>
+                                        <option value="scada">ICS / SCADA</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="asset-zone">Network Zone</label>
+                                    <select id="asset-zone" class="form-control">
+                                        <option value="DMZ">DMZ</option>
+                                        <option value="Internal">Internal Corporate</option>
+                                        <option value="Secure Core">Secure Core</option>
+                                        <option value="ICS/SCADA">ICS / SCADA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="asset-ip">IPv4 Address</label>
+                                    <input type="text" id="asset-ip" class="form-control" placeholder="10.0.5.22" required>
+                                </div>
+                                <div class="form-group col">
+                                    <label for="asset-cvss">CVSS Vulnerability Score (0-10)</label>
+                                    <input type="number" step="0.1" min="0" max="10" id="asset-cvss" class="form-control" value="6.5">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="asset-criticality">Asset Criticality Value (1.0 to 5.0)</label>
+                                <input type="number" step="0.1" min="1" max="5" id="asset-criticality" class="form-control" value="3.5">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Add Node to Digital Twin
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Asset List Table -->
+                    <div class="asset-list-card glass-card">
+                        <h3><i class="fa-solid fa-list-check"></i> Digital Twin Node Inventory</h3>
+                        <div class="table-responsive">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Node Name</th>
+                                        <th>Type</th>
+                                        <th>Zone</th>
+                                        <th>IP Address</th>
+                                        <th>CVSS</th>
+                                        <th>Criticality</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="asset-table-body">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: AI SECURITY COPILOT -->
+            <section id="tab-copilot" class="tab-content">
+                <div class="copilot-card glass-card">
+                    <div class="copilot-header">
+                        <div class="copilot-title">
+                            <i class="fa-solid fa-robot"></i> AI Digital Twin Security Copilot
+                        </div>
+                        <span class="text-muted">Ask questions about network vulnerabilities, attack paths, and remediations</span>
+                    </div>
+
+                    <div id="chat-box" class="chat-body">
+                        <div class="chat-msg bot-msg">
+                            <div class="msg-avatar"><i class="fa-solid fa-shield-cat"></i></div>
+                            <div class="msg-bubble">
+                                Hello! I am your AI Digital Twin Security Assistant. How can I help you analyze threat vectors or optimize network risk scores today?
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prompt Suggestions -->
+                    <div class="copilot-suggestions">
+                        <button class="chip-btn" data-query="What is the current network risk score?">What is the current network risk score?</button>
+                        <button class="chip-btn" data-query="Which nodes have the highest CVSS vulnerability score?">Highest CVSS nodes?</button>
+                        <button class="chip-btn" data-query="What defense mitigation do you recommend?">Recommended mitigation?</button>
+                    </div>
+
+                    <!-- Chat Form -->
+                    <form id="copilot-form" class="copilot-input-group">
+                        <input type="text" id="copilot-input" class="form-control" placeholder="Ask AI Copilot about network risk, attack paths, or mitigation..." required autocomplete="off">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-paper-plane"></i> Send
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/network_viz.js"></script>
+    <script src="/static/js/charts.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

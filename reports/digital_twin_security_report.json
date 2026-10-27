@@ -1,0 +1,577 @@
+{
+  "title": "AI-Based Network Digital Twin Risk Assessment & Attack Simulation Report",
+  "generated_at": "2026-10-07 16:22:02",
+  "executive_summary": {
+    "overall_network_risk_score": 40.6,
+    "threat_level": "MEDIUM",
+    "blast_radius_percent": 16.7,
+    "compromised_node_count": 1,
+    "total_network_assets": 12
+  },
+  "ml_model_evaluation": {
+    "model": "Random Forest Classifier",
+    "accuracy": 1.0,
+    "macro_f1": 1.0
+  },
+  "network_topology_snapshot": [
+    {
+      "id": "node_wan_gateway",
+      "name": "Edge Border Router",
+      "type": "router",
+      "ip": "198.51.100.1",
+      "zone": "WAN",
+      "os": "Cisco IOS-XR",
+      "open_ports": [
+        80,
+        443,
+        179
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2023-20198",
+          "cvss": 5.3
+        }
+      ],
+      "cvss_score": 5.3,
+      "asset_criticality": 3.0,
+      "status": "isolated",
+      "pos": {
+        "x": 100,
+        "y": 260
+      },
+      "telemetry": {
+        "cpu_utilization": 10.0,
+        "ram_utilization": 92.0,
+        "bandwidth_mbps": 0.0,
+        "failed_logins": 0,
+        "error_rate": 0.25,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.0
+      },
+      "betweenness_centrality": 0.0,
+      "degree_centrality": 0.0909
+    },
+    {
+      "id": "node_fw_perimeter",
+      "name": "Perimeter Next-Gen FW",
+      "type": "firewall",
+      "ip": "192.168.1.1",
+      "zone": "Perimeter",
+      "os": "Palo Alto PAN-OS",
+      "open_ports": [
+        443,
+        22
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2024-3400",
+          "cvss": 6.8
+        }
+      ],
+      "cvss_score": 6.8,
+      "asset_criticality": 4.5,
+      "status": "healthy",
+      "pos": {
+        "x": 280,
+        "y": 260
+      },
+      "telemetry": {
+        "cpu_utilization": 23.0,
+        "ram_utilization": 20.9,
+        "bandwidth_mbps": 19.3,
+        "failed_logins": 0,
+        "error_rate": 0.007,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.2091
+      },
+      "betweenness_centrality": 0.2091,
+      "degree_centrality": 0.3636
+    },
+    {
+      "id": "node_web_dmz",
+      "name": "Public Nginx Web Server",
+      "type": "server",
+      "ip": "10.0.1.50",
+      "zone": "DMZ",
+      "os": "Ubuntu Linux 22.04",
+      "open_ports": [
+        80,
+        443,
+        22
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-PATCHED-2026",
+          "cvss": 1.2
+        }
+      ],
+      "cvss_score": 1.2,
+      "asset_criticality": 3.8,
+      "status": "healthy",
+      "pos": {
+        "x": 480,
+        "y": 130
+      },
+      "telemetry": {
+        "cpu_utilization": 22.0,
+        "ram_utilization": 25.4,
+        "bandwidth_mbps": 12.3,
+        "failed_logins": 0,
+        "error_rate": 0.001,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.0848
+      },
+      "betweenness_centrality": 0.0848,
+      "degree_centrality": 0.1818
+    },
+    {
+      "id": "node_api_gateway",
+      "name": "API Gateway Cluster",
+      "type": "server",
+      "ip": "10.0.1.51",
+      "zone": "DMZ",
+      "os": "Alpine Linux",
+      "open_ports": [
+        8080,
+        443
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2023-38545",
+          "cvss": 7.2
+        }
+      ],
+      "cvss_score": 7.2,
+      "asset_criticality": 4.0,
+      "status": "healthy",
+      "pos": {
+        "x": 480,
+        "y": 260
+      },
+      "telemetry": {
+        "cpu_utilization": 22.9,
+        "ram_utilization": 27.2,
+        "bandwidth_mbps": 23.1,
+        "failed_logins": 0,
+        "error_rate": 0.002,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.0848
+      },
+      "betweenness_centrality": 0.0848,
+      "degree_centrality": 0.1818
+    },
+    {
+      "id": "node_mail_server",
+      "name": "Corporate Mail Gateway",
+      "type": "server",
+      "ip": "10.0.1.52",
+      "zone": "DMZ",
+      "os": "Debian Linux",
+      "open_ports": [
+        25,
+        587,
+        993
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2024-21670",
+          "cvss": 6.5
+        }
+      ],
+      "cvss_score": 6.5,
+      "asset_criticality": 3.5,
+      "status": "healthy",
+      "pos": {
+        "x": 480,
+        "y": 390
+      },
+      "telemetry": {
+        "cpu_utilization": 28.1,
+        "ram_utilization": 27.0,
+        "bandwidth_mbps": 12.1,
+        "failed_logins": 0,
+        "error_rate": 0.005,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.0848
+      },
+      "betweenness_centrality": 0.0848,
+      "degree_centrality": 0.1818
+    },
+    {
+      "id": "node_fw_internal",
+      "name": "Internal Core Firewall",
+      "type": "firewall",
+      "ip": "10.0.2.1",
+      "zone": "Internal",
+      "os": "Fortinet FortiGate",
+      "open_ports": [
+        443
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2024-21762",
+          "cvss": 4.2
+        }
+      ],
+      "cvss_score": 4.2,
+      "asset_criticality": 4.8,
+      "status": "healthy",
+      "pos": {
+        "x": 680,
+        "y": 260
+      },
+      "telemetry": {
+        "cpu_utilization": 27.9,
+        "ram_utilization": 29.8,
+        "bandwidth_mbps": 28.6,
+        "failed_logins": 0,
+        "error_rate": 0.005,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.7545
+      },
+      "betweenness_centrality": 0.7545,
+      "degree_centrality": 0.7273
+    },
+    {
+      "id": "node_active_directory",
+      "name": "Active Directory Controller",
+      "type": "server",
+      "ip": "10.0.2.10",
+      "zone": "Secure Core",
+      "os": "Windows Server 2022",
+      "open_ports": [
+        53,
+        88,
+        389,
+        445,
+        636
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2022-26923",
+          "cvss": 8.8
+        },
+        {
+          "id": "CVE-2024-20683",
+          "cvss": 7.4
+        }
+      ],
+      "cvss_score": 8.8,
+      "asset_criticality": 5.0,
+      "status": "under_attack",
+      "pos": {
+        "x": 880,
+        "y": 110
+      },
+      "telemetry": {
+        "cpu_utilization": 18.6,
+        "ram_utilization": 22.2,
+        "bandwidth_mbps": 10.7,
+        "failed_logins": 0,
+        "error_rate": 0.002,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.0
+      },
+      "betweenness_centrality": 0.0,
+      "degree_centrality": 0.1818
+    },
+    {
+      "id": "node_db_prod",
+      "name": "Production PostgreSQL DB",
+      "type": "database",
+      "ip": "10.0.2.20",
+      "zone": "Secure Core",
+      "os": "RHEL 9.2",
+      "open_ports": [
+        5432,
+        22
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2023-5869",
+          "cvss": 9.1
+        },
+        {
+          "id": "CVE-2024-10979",
+          "cvss": 8.1
+        }
+      ],
+      "cvss_score": 9.1,
+      "asset_criticality": 5.0,
+      "status": "healthy",
+      "pos": {
+        "x": 880,
+        "y": 230
+      },
+      "telemetry": {
+        "cpu_utilization": 23.0,
+        "ram_utilization": 29.8,
+        "bandwidth_mbps": 47.4,
+        "failed_logins": 0,
+        "error_rate": 0.009,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.1818
+      },
+      "betweenness_centrality": 0.1818,
+      "degree_centrality": 0.2727
+    },
+    {
+      "id": "node_workstation_admin",
+      "name": "SecOps Admin Workstation",
+      "type": "workstation",
+      "ip": "10.0.3.105",
+      "zone": "Internal",
+      "os": "Windows 11 Enterprise",
+      "open_ports": [
+        3389,
+        445
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2023-36884",
+          "cvss": 6.8
+        }
+      ],
+      "cvss_score": 6.8,
+      "asset_criticality": 4.2,
+      "status": "healthy",
+      "pos": {
+        "x": 880,
+        "y": 350
+      },
+      "telemetry": {
+        "cpu_utilization": 12.2,
+        "ram_utilization": 27.0,
+        "bandwidth_mbps": 10.4,
+        "failed_logins": 0,
+        "error_rate": 0.005,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.0182
+      },
+      "betweenness_centrality": 0.0182,
+      "degree_centrality": 0.2727
+    },
+    {
+      "id": "node_workstation_user",
+      "name": "Finance Dept Workstation",
+      "type": "workstation",
+      "ip": "10.0.3.112",
+      "zone": "Internal",
+      "os": "Windows 10 Pro",
+      "open_ports": [
+        139,
+        445
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2024-21338",
+          "cvss": 7.8
+        }
+      ],
+      "cvss_score": 7.8,
+      "asset_criticality": 3.2,
+      "status": "compromised",
+      "pos": {
+        "x": 880,
+        "y": 470
+      },
+      "telemetry": {
+        "cpu_utilization": 85.0,
+        "ram_utilization": 25.0,
+        "bandwidth_mbps": 34.9,
+        "failed_logins": 0,
+        "error_rate": 0.006,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.0
+      },
+      "betweenness_centrality": 0.0,
+      "degree_centrality": 0.0909
+    },
+    {
+      "id": "node_scada_gateway",
+      "name": "OT SCADA IoT Gateway",
+      "type": "scada",
+      "ip": "172.16.5.1",
+      "zone": "ICS/SCADA",
+      "os": "VxWorks RTOS",
+      "open_ports": [
+        502,
+        20000,
+        102
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2023-3595",
+          "cvss": 9.8
+        }
+      ],
+      "cvss_score": 9.8,
+      "asset_criticality": 4.9,
+      "status": "healthy",
+      "pos": {
+        "x": 1080,
+        "y": 260
+      },
+      "telemetry": {
+        "cpu_utilization": 23.5,
+        "ram_utilization": 29.4,
+        "bandwidth_mbps": 44.1,
+        "failed_logins": 0,
+        "error_rate": 0.002,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.0
+      },
+      "betweenness_centrality": 0.0,
+      "degree_centrality": 0.0909
+    },
+    {
+      "id": "node_cloud_storage",
+      "name": "Cloud Backup S3 Vault",
+      "type": "cloud",
+      "ip": "10.0.4.99",
+      "zone": "Cloud",
+      "os": "AWS Linux 2023",
+      "open_ports": [
+        443
+      ],
+      "cve_list": [
+        {
+          "id": "CVE-2023-34034",
+          "cvss": 5.4
+        }
+      ],
+      "cvss_score": 5.4,
+      "asset_criticality": 4.3,
+      "status": "healthy",
+      "pos": {
+        "x": 1080,
+        "y": 130
+      },
+      "telemetry": {
+        "cpu_utilization": 17.9,
+        "ram_utilization": 37.2,
+        "bandwidth_mbps": 20.4,
+        "failed_logins": 0,
+        "error_rate": 0.008,
+        "syn_ratio": 0.05,
+        "anomaly_score": 0.02,
+        "node_centrality": 0.0
+      },
+      "betweenness_centrality": 0.0,
+      "degree_centrality": 0.0909
+    }
+  ],
+  "recommended_remediations": [
+    {
+      "id": "playbook_patch_node_api_gateway",
+      "node_id": "node_api_gateway",
+      "node_name": "API Gateway Cluster",
+      "action_type": "PATCH_VULNERABILITY",
+      "title": "Emergency Patch Deployment for API Gateway Cluster (CVSS 7.2)",
+      "description": "Apply security patch targeting CVE vulnerabilities on API Gateway Cluster.",
+      "severity": "MEDIUM",
+      "risk_reduction_estimate": 14.4
+    },
+    {
+      "id": "playbook_isolate_node_active_directory",
+      "node_id": "node_active_directory",
+      "node_name": "Active Directory Controller",
+      "action_type": "ISOLATE_NODE",
+      "title": "Network Micro-Segmentation & Isolation on Active Directory Controller",
+      "description": "Isolate node node_active_directory from core routing table to stop lateral movement blast radius.",
+      "severity": "HIGH",
+      "risk_reduction_estimate": 39.9
+    },
+    {
+      "id": "playbook_fw_node_active_directory",
+      "node_id": "node_active_directory",
+      "node_name": "Active Directory Controller",
+      "action_type": "FIREWALL_BLOCK",
+      "title": "Inject Firewall ACL & Rate-Limit Rule for Active Directory Controller",
+      "description": "Enforce next-gen firewall policy blocking unauthorized ingress traffic to open ports [53, 88, 389, 445, 636].",
+      "severity": "HIGH",
+      "risk_reduction_estimate": 29.3
+    },
+    {
+      "id": "playbook_patch_node_active_directory",
+      "node_id": "node_active_directory",
+      "node_name": "Active Directory Controller",
+      "action_type": "PATCH_VULNERABILITY",
+      "title": "Emergency Patch Deployment for Active Directory Controller (CVSS 8.8)",
+      "description": "Apply security patch targeting CVE vulnerabilities on Active Directory Controller.",
+      "severity": "MEDIUM",
+      "risk_reduction_estimate": 21.3
+    },
+    {
+      "id": "playbook_patch_node_db_prod",
+      "node_id": "node_db_prod",
+      "node_name": "Production PostgreSQL DB",
+      "action_type": "PATCH_VULNERABILITY",
+      "title": "Emergency Patch Deployment for Production PostgreSQL DB (CVSS 9.1)",
+      "description": "Apply security patch targeting CVE vulnerabilities on Production PostgreSQL DB.",
+      "severity": "MEDIUM",
+      "risk_reduction_estimate": 18.5
+    },
+    {
+      "id": "playbook_isolate_node_workstation_user",
+      "node_id": "node_workstation_user",
+      "node_name": "Finance Dept Workstation",
+      "action_type": "ISOLATE_NODE",
+      "title": "Network Micro-Segmentation & Isolation on Finance Dept Workstation",
+      "description": "Isolate node node_workstation_user from core routing table to stop lateral movement blast radius.",
+      "severity": "CRITICAL",
+      "risk_reduction_estimate": 38.8
+    },
+    {
+      "id": "playbook_fw_node_workstation_user",
+      "node_id": "node_workstation_user",
+      "node_name": "Finance Dept Workstation",
+      "action_type": "FIREWALL_BLOCK",
+      "title": "Inject Firewall ACL & Rate-Limit Rule for Finance Dept Workstation",
+      "description": "Enforce next-gen firewall policy blocking unauthorized ingress traffic to open ports [139, 445].",
+      "severity": "HIGH",
+      "risk_reduction_estimate": 28.5
+    },
+    {
+      "id": "playbook_patch_node_workstation_user",
+      "node_id": "node_workstation_user",
+      "node_name": "Finance Dept Workstation",
+      "action_type": "PATCH_VULNERABILITY",
+      "title": "Emergency Patch Deployment for Finance Dept Workstation (CVSS 7.8)",
+      "description": "Apply security patch targeting CVE vulnerabilities on Finance Dept Workstation.",
+      "severity": "MEDIUM",
+      "risk_reduction_estimate": 20.7
+    },
+    {
+      "id": "playbook_patch_node_scada_gateway",
+      "node_id": "node_scada_gateway",
+      "node_name": "OT SCADA IoT Gateway",
+      "action_type": "PATCH_VULNERABILITY",
+      "title": "Emergency Patch Deployment for OT SCADA IoT Gateway (CVSS 9.8)",
+      "description": "Apply security patch targeting CVE vulnerabilities on OT SCADA IoT Gateway.",
+      "severity": "MEDIUM",
+      "risk_reduction_estimate": 18.3
+    },
+    {
+      "id": "playbook_honeypot_global",
+      "node_id": "global",
+      "node_name": "Network Wide",
+      "action_type": "HONEYPOT_REDIRECT",
+      "title": "Deploy Dynamic Honeypot Trap & Traffic Diversion",
+      "description": "Reroute malicious payload packets to isolated Cowrie/Dionaea deception honeypot.",
+      "severity": "HIGH",
+      "risk_reduction_estimate": 45.0
+    }
+  ]
+}
